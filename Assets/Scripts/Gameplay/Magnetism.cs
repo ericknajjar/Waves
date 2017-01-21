@@ -43,7 +43,7 @@ public class Magnetism : Entity,IMagneticResponse {
 		if (m_input.PowerStick.sqrMagnitude >= 0.01f)
 		{
 			var arr = new string[]{"Ground","Wall"};
-			var hit = Physics2D.Raycast(transform.position,m_input.PowerStick.normalized,20.0f,LayerMask.GetMask(arr));
+			var hit = Physics2D.Raycast(transform.position,m_input.PowerStick.normalized,7.0f,LayerMask.GetMask(arr));
 
 			Debug.Log (hit.collider);
 			if (hit.collider!=null && hit.collider.tag=="metal")
