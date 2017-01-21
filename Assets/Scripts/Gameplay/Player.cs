@@ -11,7 +11,7 @@ public interface IPlayer
 public class Player : Entity, IPlayer {
 	
 	[BindingProvider(DependencyCount=1)]
-	public static IPlayer Get(IPlataformerInput plataformerInput,Camera camera,Vector3 spawnPoint)
+	public static IPlayer Get(IPlataformerInput plataformerInput,CameraFollow camera,Vector3 spawnPoint)
 	{
 		var prefab = Resources.Load<GameObject> ("Player");
 
@@ -21,7 +21,9 @@ public class Player : Entity, IPlayer {
 
 		var context = p.Context;
 		context.Bind<IPlataformerInput> ().To (() => plataformerInput);
-		camera.transform.SetParent (p.transform);
+
+		camera.SetTarget (p.transform);
+
 		return p;
 
 	}
