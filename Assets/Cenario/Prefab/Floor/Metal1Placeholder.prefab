@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34a9f37eb0835034d87e414f40900478, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_prefab: {fileID: 1689586225606160, guid: 17475076732af1442a9f2ae43dd0e5f3, type: 2}
+  m_prefab: {fileID: 1689586225606160, guid: a8a9946ed4ef42c4a8e6c3fd091d0c9c, type: 2}
 --- !u!212 &212721086910934340
 SpriteRenderer:
   m_ObjectHideFlags: 1
