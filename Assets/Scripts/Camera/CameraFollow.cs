@@ -8,7 +8,10 @@ public class CameraFollow : MonoBehaviour {
 	float m_deadRadius=2.0f;
 
 	[SerializeField]
-	float m_lerpSpeed=5.0f;
+	float m_lerpSpeed=3.0f;
+
+	[SerializeField]
+	float m_easingPercent=1.03f;
 
 	Transform m_target;
 
@@ -21,7 +24,7 @@ public class CameraFollow : MonoBehaviour {
 
 		if (delta.sqrMagnitude > m_deadRadius*m_deadRadius) 
 		{
-			pos2 = new Vector2 (pos2.x*1.05f,pos2.y);
+			pos2 = new Vector2 (pos2.x+m_deadRadius*m_easingPercent,pos2.y);
 			var target=Vector2.Lerp (pos1, pos2,Time.deltaTime * m_lerpSpeed) ;
 
 			//transform.Translate (delta* Time.deltaTime * m_lerpSpeed);
