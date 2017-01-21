@@ -22,7 +22,6 @@ public class PlayerInput: Entity
 		get;
 		private set;
 	}
-		
 
 	public void Start()
 	{
@@ -38,7 +37,11 @@ public class PlayerInput: Entity
 
 	void UpdateGrounded()
 	{
-		IsGrounded = m_collider.Raycast (Vector2.down, m_raycasts, m_collider.bounds.extents.y*1.05f, LayerMask.GetMask ("Ground")) > 0;
+		var bounds = m_collider.bounds;
+		bounds.Expand(new Vector3(1.1f,1.0f,1.0f));
+		var allHits = Physics2D.BoxCastAll (transform.position, bounds.extents,0.0f, Vector2.down, m_collider.bounds.extents.y/2, LayerMask.GetMask ("Ground"));
+
+		IsGrounded = allHits.Length > 0;
 	}
 
 	void Update()
@@ -59,9 +62,12 @@ public class PlayerInput: Entity
 		{
 			speedX = m_moveSpeed * Mathf.Sign (joystick.x);
 		}
-
+			
 		if(IsGrounded)
 			m_rigidBody.velocity = new Vector2 (speedX,m_rigidBody.velocity.y);
+		else
+			if(Mathf.Abs (speedX)> 0.5f)
+				m_rigidBody.velocity = new Vector2 (speedX,m_rigidBody.velocity.y);
 	}
 
 	void OnJump()

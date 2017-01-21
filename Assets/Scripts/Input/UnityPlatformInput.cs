@@ -27,6 +27,11 @@ public class UnityPlatformInput : Entity, IPlataformerInput {
 		get;
 		private set;
 	}
+
+	public Vector2 PowerStick {
+		get;
+		private set;
+	}
 	#endregion
 
 	static UnityPlatformInput s_instance;
@@ -40,6 +45,11 @@ public class UnityPlatformInput : Entity, IPlataformerInput {
 		var x = Input.GetAxis ("Horizontal");
 
 		Joystick = new Vector2 (x,0.0f);
+
+		var xPower = Input.GetAxis ("HorizontalPower");
+		var yPower = Input.GetAxis ("VerticalPower");
+
+		PowerStick = new Vector2 (xPower, yPower);
 	}
 
 	[BindingProvider]

@@ -8,4 +8,6 @@ public interface IPlataformerInput  {
 	IEventRegister OnJumpClick{ get;}
 
 	Vector2 Joystick{ get;}
+
+	Vector2 PowerStick{ get;}
 }
