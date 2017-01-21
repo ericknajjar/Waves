@@ -18,7 +18,7 @@ public class Bootstrap : MonoBehaviour
 
 		m_masterContext = new ReflectiveBindingContextFactory (bindingFinder).CreateContext();
 
-		m_masterContext.Get<IPlayer> (InnerBindingNames.Empty,Camera.main.transform,m_startPos );
-
+		m_masterContext.Get<IPlayer> (InnerBindingNames.Empty,Camera.main,m_startPos );
+		Camera.main.transform.localPosition = new Vector3 (0.0f, 0.0f, Camera.main.transform.localPosition.z);
 	}
 }

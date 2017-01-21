@@ -30,10 +30,11 @@ public class Magnetism : Entity {
 			var arr = new string[]{"Ground","Wall"};
 			var hit = Physics2D.Raycast(transform.position,-m_input.PowerStick.normalized,20.0f,LayerMask.GetMask(arr));
 
+			Debug.Log (hit.collider);
 			if (hit.collider!=null && hit.collider.tag=="metal")
 			{
 				m_rigidBody.AddForce (pull * Time.fixedDeltaTime);
-				Debug.Log ("forceeee");
+
 			}
 
 		}
