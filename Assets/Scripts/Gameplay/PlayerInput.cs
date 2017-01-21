@@ -15,18 +15,42 @@ public class PlayerInput: Entity
 
 	IPlataformerInput m_input;
 	Rigidbody2D m_rigidBody;
+	Collider2D m_collider;
+	RaycastHit2D[] m_raycasts = new RaycastHit2D[2];
 
+	public bool IsGrounded {
+		get;
+		private set;
+	}
+		
 
 	public void Start()
 	{
+
+		m_collider = GetComponent<Collider2D> ();
+
+		UpdateGrounded ();
+
 		m_rigidBody = GetComponent<Rigidbody2D> ();
 		m_input = Context.Get<IPlataformerInput> ();
-		Debug.Log ("player input");
 		m_input.OnJumpClick.Register (OnJump);
+	}
+
+	void UpdateGrounded()
+	{
+		IsGrounded = m_collider.Raycast (Vector2.down, m_raycasts, m_collider.bounds.extents.y*1.05f, LayerMask.GetMask ("Ground")) > 0;
 	}
 
 	void Update()
 	{
+		
+
+	}
+
+	void FixedUpdate()
+	{
+		UpdateGrounded ();
+		Debug.Log (IsGrounded);
 		var joystick = m_input.Joystick.normalized;
 		var speedX = 0.0f;
 		var speedY = 0.0f;
@@ -35,16 +59,15 @@ public class PlayerInput: Entity
 		{
 			speedX = m_moveSpeed * Mathf.Sign (joystick.x);
 		}
-			
 
-		m_rigidBody.velocity = new Vector2 (speedX,m_rigidBody.velocity.y);
-
-		Debug.Log (speedX);
+		if(IsGrounded)
+			m_rigidBody.velocity = new Vector2 (speedX,m_rigidBody.velocity.y);
 	}
 
 	void OnJump()
 	{
-		m_rigidBody.AddForce (new Vector2 (0, m_jumpForce));
+		if(IsGrounded)
+			m_rigidBody.AddForce (new Vector2 (0, m_jumpForce));
 	}
 }
 
