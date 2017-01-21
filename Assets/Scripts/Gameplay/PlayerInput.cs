@@ -33,7 +33,9 @@ public class PlayerInput: Entity
 
 		m_rigidBody = GetComponent<Rigidbody2D> ();
 		m_input = Context.Get<IPlataformerInput> ();
-		m_input.OnJumpClick.Register (OnJump);
+
+		var lister = new DelegateEventListener (OnJump, () => this == null);
+		m_input.OnJumpClick.Register (lister);
 	}
 
 	void UpdateGrounded()
@@ -62,7 +64,6 @@ public class PlayerInput: Entity
 
 		var joystick = m_input.Joystick.normalized;
 		var speedX = 0.0f;
-		var speedY = 0.0f;
 
 		if ( Mathf.Abs (joystick.x) > 0.5f)
 		{
