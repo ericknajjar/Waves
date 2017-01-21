@@ -9,7 +9,7 @@ public class MagnetismResponder2 : MonoBehaviour,IMagnectiResponder
 
 		Debug.Log ("aqui");
 		GetComponent<Rigidbody2D> ().AddForce (direction * power * Time.deltaTime);
-		//response.ApplyForce (-direction * power);
+		response.ApplyForce (-direction * power);
 
 		return true;
 	}
