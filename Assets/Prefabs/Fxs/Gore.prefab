@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4979685495794278}
   - component: {fileID: 198264989372893306}
   - component: {fileID: 199602155345123074}
+  - component: {fileID: 114105273338162746}
   m_Layer: 0
   m_Name: Gore
   m_TagString: Untagged
@@ -41,6 +42,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114105273338162746
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1973845240265970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ebe01bd42bf1ef47a48f681fa0f97f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_time: 2
 --- !u!198 &198264989372893306
 ParticleSystem:
   m_ObjectHideFlags: 1

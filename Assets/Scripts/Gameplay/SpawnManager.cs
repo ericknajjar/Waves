@@ -1,13 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using u3dExtensions.Events;
 
 public class SpawnManager : MonoBehaviour {
 
 	[SerializeField]
 	GameObject m_enemy1;
 
+	[SerializeField]
+	GameObject m_spawnFx;
+
+	[SerializeField]
+	Text m_score;
+
 	int m_currentWave = 1;
+
+	int m_scorePoints = 0;
 
 	[SerializeField]
 	GameObject[] m_spawnPoints;
@@ -15,6 +25,8 @@ public class SpawnManager : MonoBehaviour {
 	void Start ()
 	{
 		StartCoroutine (Wave());
+
+		m_score.text = m_scorePoints.ToString ();
 	}
 
 
@@ -36,7 +48,15 @@ public class SpawnManager : MonoBehaviour {
 	void SpawnOne()
 	{
 		var spawnPoint = m_spawnPoints [Random.Range (0, m_spawnPoints.Length)];
-		GameObject.Instantiate (m_enemy1,spawnPoint.transform.position,Quaternion.identity);
+		var enemy = GameObject.Instantiate (m_enemy1,spawnPoint.transform.position,Quaternion.identity).GetComponent<EnemyGroundMovement>();
+		enemy.OnDeath.Register(DelegateEventListeners.Once<Vector2>((pos)=>{
+
+
+			m_score.text = (++m_scorePoints).ToString();
+		}));
+
+		GameObject.Instantiate (m_spawnFx,spawnPoint.transform.position,Quaternion.identity);
+
 	}
 
 	float NextSapawnIn

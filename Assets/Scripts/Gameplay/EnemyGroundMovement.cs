@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using u3dExtensions.Events;
 
 public class EnemyGroundMovement : MonoBehaviour {
 
@@ -10,6 +11,16 @@ public class EnemyGroundMovement : MonoBehaviour {
 
 	[SerializeField]
 	GameObject m_gore;
+
+	[SerializeField]
+	EventSlot<Vector2> m_onDeath = new EventSlot<Vector2>();
+
+	public IEventRegister<Vector2> OnDeath
+	{
+		get {
+			return m_onDeath;
+		}
+	}
 
 	Vector2 m_walkDir = Vector2.left;
 
@@ -84,6 +95,7 @@ public class EnemyGroundMovement : MonoBehaviour {
 			if (c.relativeVelocity.magnitude > GetComponent<Rigidbody2D> ().velocity.magnitude * 1.05f)
 			{
 				GameObject.Instantiate (m_gore,transform.position, Quaternion.identity);
+				m_onDeath.Trigger (transform.position);
 				Destroy (gameObject);
 			}
 		} 
