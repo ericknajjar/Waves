@@ -91,6 +91,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_pullPower: 2000
+  m_magneticAreas: []
 --- !u!114 &114646561327012076
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -103,7 +104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_moveSpeed: 7
-  m_jumpForce: 900
+  m_jumpForce: 1000
 --- !u!114 &114863434677000002
 MonoBehaviour:
   m_ObjectHideFlags: 1
