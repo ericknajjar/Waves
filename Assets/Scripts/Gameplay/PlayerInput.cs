@@ -41,19 +41,24 @@ public class PlayerInput: Entity
 		bounds.Expand(new Vector3(1.1f,1.0f,1.0f));
 		var allHits = Physics2D.BoxCastAll (transform.position, bounds.extents,0.0f, Vector2.down, m_collider.bounds.extents.y/2, LayerMask.GetMask ("Ground"));
 
-		IsGrounded = allHits.Length > 0;
-	}
+		bool grounded = false;
+		foreach (var hit in allHits) {
+			
 
-	void Update()
-	{
+			var angle = Vector2.Angle(Vector2.up,((Vector2)transform.position - hit.point).normalized); 
+			grounded = angle < 30.0f;
 		
+			if (grounded)
+				break;
+		}
 
+		IsGrounded = grounded;
 	}
 
 	void FixedUpdate()
 	{
 		UpdateGrounded ();
-		Debug.Log (IsGrounded);
+
 		var joystick = m_input.Joystick.normalized;
 		var speedX = 0.0f;
 		var speedY = 0.0f;
