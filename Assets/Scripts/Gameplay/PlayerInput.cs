@@ -19,6 +19,8 @@ public class PlayerInput: Entity
 	Collider2D m_collider;
 	RaycastHit2D[] m_raycasts = new RaycastHit2D[2];
 
+	Animator m_animator;
+
 	public bool IsGrounded {
 		get;
 		private set;
@@ -26,7 +28,7 @@ public class PlayerInput: Entity
 
 	public void Start()
 	{
-
+		m_animator = GetComponent<Animator> ();
 		m_collider = GetComponent<Collider2D> ();
 
 		UpdateGrounded ();
@@ -64,6 +66,19 @@ public class PlayerInput: Entity
 
 		var joystick = m_input.Joystick.normalized;
 		var speedX = 0.0f;
+
+		if(joystick.x > 0)
+		{
+			
+
+			m_animator.SetFloat ("walkLeft",joystick.x);
+			m_animator.SetFloat ("walkRight",0);
+		}
+		else
+		{
+			m_animator.SetFloat ("walkRight",Mathf.Abs (joystick.x));
+			m_animator.SetFloat ("walkLeft",0);
+		}
 
 		if ( Mathf.Abs (joystick.x) > 0.5f)
 		{
