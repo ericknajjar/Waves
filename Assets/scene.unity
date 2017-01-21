@@ -349,6 +349,10 @@ Prefab:
       propertyPath: m_Name
       value: Metal1Placeholder (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1689586225606160, guid: 303d5de024d59494091c7a19c08d8e86, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 303d5de024d59494091c7a19c08d8e86, type: 2}
   m_IsPrefabParent: 0
@@ -577,6 +581,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 74929321}
+  - component: {fileID: 74929323}
+  - component: {fileID: 74929322}
   m_Layer: 8
   m_Name: Plat14
   m_TagString: Untagged
@@ -591,7 +597,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 74929320}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.996379, y: -21.44, z: 0}
+  m_LocalPosition: {x: -10.996379, y: -20.44, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1451820908}
@@ -602,6 +608,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!251 &74929322
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 74929320}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
+--- !u!61 &74929323
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 74929320}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 1
+  m_Offset: {x: -2.5, y: -3.05}
+  serializedVersion: 2
+  m_Size: {x: 5, y: 1}
 --- !u!4 &82126786 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4186098635222526, guid: 1287cd809adf55c4e981232ad764eb9e,
@@ -1022,6 +1060,10 @@ Prefab:
       propertyPath: m_Name
       value: Metal1Placeholder (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1689586225606160, guid: 303d5de024d59494091c7a19c08d8e86, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 303d5de024d59494091c7a19c08d8e86, type: 2}
   m_IsPrefabParent: 0
@@ -1067,6 +1109,10 @@ Prefab:
     - target: {fileID: 1689586225606160, guid: 303d5de024d59494091c7a19c08d8e86, type: 2}
       propertyPath: m_Name
       value: Metal1Placeholder (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1689586225606160, guid: 303d5de024d59494091c7a19c08d8e86, type: 2}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 303d5de024d59494091c7a19c08d8e86, type: 2}
@@ -6623,6 +6669,10 @@ Prefab:
       propertyPath: m_Name
       value: Metal1Placeholder (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 1689586225606160, guid: 303d5de024d59494091c7a19c08d8e86, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 303d5de024d59494091c7a19c08d8e86, type: 2}
   m_IsPrefabParent: 0
@@ -7342,6 +7392,10 @@ Prefab:
       propertyPath: m_Name
       value: Metal1Placeholder (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1689586225606160, guid: 303d5de024d59494091c7a19c08d8e86, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 303d5de024d59494091c7a19c08d8e86, type: 2}
   m_IsPrefabParent: 0
@@ -7609,9 +7663,11 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 680091455}
+  - component: {fileID: 680091457}
+  - component: {fileID: 680091456}
   m_Layer: 8
   m_Name: MetalFloor2
-  m_TagString: Untagged
+  m_TagString: metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7639,6 +7695,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &680091456
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 680091454}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: -23.5, y: 2.5}
+  serializedVersion: 2
+  m_Size: {x: 10, y: 1}
+--- !u!251 &680091457
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 680091454}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!1001 &681706244
 Prefab:
   m_ObjectHideFlags: 0
@@ -10317,9 +10405,11 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 928407425}
+  - component: {fileID: 928407427}
+  - component: {fileID: 928407426}
   m_Layer: 8
   m_Name: MetalFloor1
-  m_TagString: Untagged
+  m_TagString: metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10347,6 +10437,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &928407426
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 928407424}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: -23.5, y: 2.5}
+  serializedVersion: 2
+  m_Size: {x: 10, y: 1}
+--- !u!251 &928407427
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 928407424}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!4 &929714519 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4186098635222526, guid: 66abcf20b398a4f44bb2d5dd92b66886,
@@ -10555,6 +10677,10 @@ Prefab:
     - target: {fileID: 4186098635222526, guid: 303d5de024d59494091c7a19c08d8e86, type: 2}
       propertyPath: m_RootOrder
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1689586225606160, guid: 303d5de024d59494091c7a19c08d8e86, type: 2}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 303d5de024d59494091c7a19c08d8e86, type: 2}
@@ -12784,6 +12910,10 @@ Prefab:
       propertyPath: m_Name
       value: Metal1Placeholder (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 1689586225606160, guid: 303d5de024d59494091c7a19c08d8e86, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 303d5de024d59494091c7a19c08d8e86, type: 2}
   m_IsPrefabParent: 0
@@ -13688,6 +13818,10 @@ Prefab:
     - target: {fileID: 1689586225606160, guid: 303d5de024d59494091c7a19c08d8e86, type: 2}
       propertyPath: m_Name
       value: Metal1Placeholder (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1689586225606160, guid: 303d5de024d59494091c7a19c08d8e86, type: 2}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 303d5de024d59494091c7a19c08d8e86, type: 2}
@@ -15125,7 +15259,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4757421435494602, guid: 4f39e670a2f6afb4d94b9f00f3ece959, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4757421435494602, guid: 4f39e670a2f6afb4d94b9f00f3ece959, type: 2}
       propertyPath: m_LocalRotation.x
@@ -19873,6 +20007,10 @@ Prefab:
       propertyPath: m_Name
       value: Metal1Placeholder (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 1689586225606160, guid: 303d5de024d59494091c7a19c08d8e86, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 303d5de024d59494091c7a19c08d8e86, type: 2}
   m_IsPrefabParent: 0
@@ -23044,6 +23182,10 @@ Prefab:
     - target: {fileID: 1689586225606160, guid: 303d5de024d59494091c7a19c08d8e86, type: 2}
       propertyPath: m_Name
       value: Metal1Placeholder (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1689586225606160, guid: 303d5de024d59494091c7a19c08d8e86, type: 2}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 303d5de024d59494091c7a19c08d8e86, type: 2}
