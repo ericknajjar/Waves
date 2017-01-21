@@ -6562,9 +6562,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 1
-  m_Offset: {x: 0.5, y: 1}
+  m_Offset: {x: 2.5, y: 1.5}
   serializedVersion: 2
-  m_Size: {x: 1, y: 4}
+  m_Size: {x: 1, y: 6}
 --- !u!251 &653127408
 PlatformEffector2D:
   m_ObjectHideFlags: 0
@@ -12710,9 +12710,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 1
-  m_Offset: {x: 0.5, y: 12}
+  m_Offset: {x: 2.5, y: 12.5}
   serializedVersion: 2
-  m_Size: {x: 1, y: 10}
+  m_Size: {x: 1, y: 12.28}
 --- !u!251 &1248560299
 PlatformEffector2D:
   m_ObjectHideFlags: 0
@@ -18705,10 +18705,10 @@ Transform:
   m_Children:
   - {fileID: 1104947766}
   - {fileID: 516850830}
-  - {fileID: 806221842}
+  - {fileID: 810006212}
   - {fileID: 597480872}
   - {fileID: 211145676}
-  - {fileID: 810006212}
+  - {fileID: 806221842}
   - {fileID: 2029560548}
   - {fileID: 342132359}
   m_Father: {fileID: 408572813}
@@ -18977,7 +18977,7 @@ BoxCollider2D:
   m_UsedByEffector: 1
   m_Offset: {x: 1.5, y: 1}
   serializedVersion: 2
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 1, y: 2.68}
 --- !u!251 &1816274445
 PlatformEffector2D:
   m_ObjectHideFlags: 0
@@ -21060,7 +21060,7 @@ BoxCollider2D:
   m_UsedByEffector: 1
   m_Offset: {x: -7.9, y: -3}
   serializedVersion: 2
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 1, y: 2.64}
 --- !u!251 &1998737672
 PlatformEffector2D:
   m_ObjectHideFlags: 0
