@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212721086910934340}
   - component: {fileID: 114672177446761498}
   m_Layer: 0
-  m_Name: Floor9Placeholder 1
+  m_Name: Floor10Placeholder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -84,7 +84,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a2a48a11161a0fd419e7c23f70b5d30e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 56d51699d51758647b751acb90a93981, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
