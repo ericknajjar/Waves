@@ -41,22 +41,26 @@ public class Magnetism : Entity,IMagneticResponse {
 	void FixedUpdate () 
 	{
 		var power = m_input.GetPower (transform.position);
-		Debug.Log (power.PowerSwitch);
+	
 		if (power.PowerSwitch != 0)
 		{
-			var arr = new string[]{"Ground","Wall"};
-			var hit = Physics2D.Raycast(transform.position,power.PowerDirection,7.0f,LayerMask.GetMask(arr));
+			var arr = new string[]{"Ground","Wall","Anvil"};
+			var hits = Physics2D.RaycastAll(transform.position,power.PowerDirection,20.0f,LayerMask.GetMask(arr));
 
-			if (hit.collider!=null && hit.collider.tag=="metal")
+			foreach(var hit in hits)
 			{
-				var responders = hit.collider.GetComponents<IMagnectiResponder> ();
-
-				foreach (var responder in responders)
+				if (hit.collider!=null && hit.collider.tag=="metal")
 				{
-					responder.Affect (this,power.PowerDirection*power.PowerSwitch,m_pullPower);
+					var responders = hit.collider.GetComponents<IMagnectiResponder> ();
+
+					foreach (var responder in responders)
+					{
+						responder.Affect (this,power.PowerDirection*power.PowerSwitch,m_pullPower);
+					}
+					Debug.Log (hit.collider);
 				}
-				Debug.Log (hit.collider);
 			}
+
 		}
 	}
 
