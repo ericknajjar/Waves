@@ -7,6 +7,23 @@ using u3dExtensions.IOC;
 using u3dExtensions.Engine.Runtime;
 using u3dExtensions.Events;
 
+public struct PowerStick
+{
+
+	public static PowerStick Construt(int s,Vector2 dir)
+	{
+		PowerStick ret;
+		ret.PowerSwitch = s;
+		ret.PowerDirection = dir;
+
+		return ret;
+	}
+
+
+	public int PowerSwitch ;
+	public Vector2 PowerDirection;
+}
+
 public class UnityPlatformInput : Entity, IPlataformerInput {
 
 	EventSlot m_onJumpClick = new EventSlot();
@@ -28,9 +45,31 @@ public class UnityPlatformInput : Entity, IPlataformerInput {
 		private set;
 	}
 
-	public Vector2 PowerStick {
-		get;
-		private set;
+	public PowerStick GetPower(Vector2 myPos){
+
+		PowerStick power = PowerStick.Construt (0, Vector2.zero);
+		var mousePos = Input.mousePosition;
+		mousePos.z = 0.0f;
+		mousePos = Camera.main.ScreenToWorldPoint(mousePos);
+		var vector = (Vector2)mousePos - myPos;
+
+		int powerButton = 0;
+
+		if(Input.GetMouseButton(0))
+		{
+			powerButton = 1;
+		}
+
+		if (Input.GetMouseButton (1)) {
+			powerButton = -1;
+		}
+
+		if (vector.sqrMagnitude > 0.01f) {
+
+			power = PowerStick.Construt (powerButton, vector.normalized);
+		}
+			
+		return power;
 	}
 	#endregion
 
@@ -46,11 +85,8 @@ public class UnityPlatformInput : Entity, IPlataformerInput {
 
 		Joystick = new Vector2 (x,0.0f);
 
-		var xPower = Input.GetAxis ("HorizontalPower");
-		var yPower = Input.GetAxis ("VerticalPower");
-
-		PowerStick = new Vector2 (xPower, yPower);
 	}
+
 
 	[BindingProvider]
 	public static IPlataformerInput Get()

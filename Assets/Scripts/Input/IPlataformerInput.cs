@@ -9,5 +9,5 @@ public interface IPlataformerInput  {
 
 	Vector2 Joystick{ get;}
 
-	Vector2 PowerStick{ get;}
+	PowerStick GetPower (Vector2 myPos);
 }
