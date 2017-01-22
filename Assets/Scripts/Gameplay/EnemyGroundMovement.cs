@@ -13,6 +13,9 @@ public class EnemyGroundMovement : MonoBehaviour {
 	GameObject m_gore;
 
 	[SerializeField]
+	bool m_randomJumps = false;
+
+	[SerializeField]
 	EventSlot<Vector2> m_onDeath = new EventSlot<Vector2>();
 
 	public IEventRegister<Vector2> OnDeath
@@ -31,6 +34,8 @@ public class EnemyGroundMovement : MonoBehaviour {
 
 	IEnumerator Start()
 	{
+		if (m_randomJumps)
+			StartCoroutine (RandomJumps());
 		for (;;) {
 
 			var pos = transform.position;
@@ -38,10 +43,21 @@ public class EnemyGroundMovement : MonoBehaviour {
 
 			if (Vector2.Distance (pos, transform.position) < 0.1f) {
 				m_walkDir *= -1;
-				if (IsGrounded)
-					Jump ();
+
 				Debug.Log ("flip");
 			}
+		}
+	}
+
+	IEnumerator RandomJumps()
+	{
+		for (;;) {
+
+			var nextWait = Random.Range (2.0f, 5.0f);
+
+			yield return new WaitForSeconds (nextWait);
+			if (IsGrounded)
+				Jump ();
 		}
 	}
 
@@ -124,6 +140,10 @@ public class EnemyGroundMovement : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D c)
 	{
+		if (c.CompareTag ("die")) {
+			Destroy (gameObject);
+		}
+
 		if (c.CompareTag ("jump") && IsGrounded) 
 		{
 			
