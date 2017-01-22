@@ -66,7 +66,6 @@ public class Magnetism : Entity,IMagneticResponse {
 					foreach (var responder in responders) {
 						responder.Affect (this, power.PowerDirection * power.PowerSwitch, m_pullPower);
 					}
-					Debug.Log (hit.collider);
 				}
 			}
 

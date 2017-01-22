@@ -16,6 +16,9 @@ public class EnemyGroundMovement : MonoBehaviour {
 	bool m_randomJumps = false;
 
 	[SerializeField]
+	bool m_randomFlips = false;
+
+	[SerializeField]
 	EventSlot<Vector2> m_onDeath = new EventSlot<Vector2>();
 
 	public IEventRegister<Vector2> OnDeath
@@ -36,6 +39,9 @@ public class EnemyGroundMovement : MonoBehaviour {
 	{
 		if (m_randomJumps)
 			StartCoroutine (RandomJumps());
+
+		if(m_randomFlips)
+			StartCoroutine (RandomFlips());
 		for (;;) {
 
 			var pos = transform.position;
@@ -44,7 +50,6 @@ public class EnemyGroundMovement : MonoBehaviour {
 			if (Vector2.Distance (pos, transform.position) < 0.1f) {
 				m_walkDir *= -1;
 
-				Debug.Log ("flip");
 			}
 		}
 	}
@@ -58,6 +63,19 @@ public class EnemyGroundMovement : MonoBehaviour {
 			yield return new WaitForSeconds (nextWait);
 			if (IsGrounded)
 				Jump ();
+		}
+	}
+
+
+	IEnumerator RandomFlips()
+	{
+		for (;;) {
+
+			var nextWait = Random.Range (3.0f, 6.0f);
+
+			yield return new WaitForSeconds (nextWait);
+
+			m_walkDir *= -1;
 		}
 	}
 
@@ -107,13 +125,10 @@ public class EnemyGroundMovement : MonoBehaviour {
 			
 			var rb = GetComponent<Rigidbody2D>();
 
-
-			if (c.relativeVelocity.magnitude > GetComponent<Rigidbody2D> ().velocity.magnitude * 1.05f)
-			{
-				GameObject.Instantiate (m_gore,transform.position, Quaternion.identity);
-				m_onDeath.Trigger (transform.position);
-				Destroy (gameObject);
-			}
+			GameObject.Instantiate (m_gore,transform.position, Quaternion.identity);
+			m_onDeath.Trigger (transform.position);
+			Destroy (gameObject);
+			
 		} 
 		else if (m_canJump && IsGrounded)
 		{

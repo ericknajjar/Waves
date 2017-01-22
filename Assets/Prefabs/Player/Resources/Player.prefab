@@ -60,7 +60,6 @@ GameObject:
   - component: {fileID: 114646464084523706}
   - component: {fileID: 61662125596272108}
   - component: {fileID: 95256014679187496}
-  - component: {fileID: 114858654764771076}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -187,17 +186,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_moveSpeed: 7
   m_jumpForce: 1000
---- !u!114 &114858654764771076
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1989939070239964}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b513486270479fa4fb9adc8feea66e27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114863434677000002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -269,7 +257,7 @@ ParticleSystem:
     serializedVersion: 3
     enabled: 1
     startLifetime:
-      scalar: 1
+      scalar: 1.5
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -437,7 +425,7 @@ ParticleSystem:
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.6784314, g: 0.8509804, b: 1, a: 1}
+      maxColor: {r: 0.11764706, g: 0.5921569, b: 1, a: 1}
       minMaxState: 0
     startSize:
       scalar: 1
@@ -2906,7 +2894,7 @@ ParticleSystem:
     serializedVersion: 3
     enabled: 1
     startLifetime:
-      scalar: 1
+      scalar: 1.5
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -3074,7 +3062,7 @@ ParticleSystem:
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 0.36078432, b: 0.58431375, a: 1}
+      maxColor: {r: 1, g: 0, b: 0, a: 1}
       minMaxState: 0
     startSize:
       scalar: 1
@@ -5497,7 +5485,7 @@ ParticleSystemRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2abc6254bc0a0c04c8e3b38b175250e5, type: 2}
+  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -5547,7 +5535,7 @@ ParticleSystemRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2abc6254bc0a0c04c8e3b38b175250e5, type: 2}
+  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
