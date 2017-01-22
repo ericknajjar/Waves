@@ -12,6 +12,7 @@ public class Bootstrap : MonoBehaviour
 
 	void Start()
 	{
+		m_startPos = transform.position;
 		DontDestroyOnLoad (gameObject);
 
 		var bindingFinder = new ReflectiveBindingFinder (GetType ().Assembly);
