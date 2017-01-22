@@ -150,9 +150,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c857f89ca3c4bc4b9d8a0f2fc835df5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_topSpeed: 9
+  m_topSpeed: 7
   m_gore: {fileID: 1973845240265970, guid: d089708294cc6fd4bbf857b66b8c5c68, type: 2}
   m_randomJumps: 1
+  m_randomFlips: 0
 --- !u!212 &212491772083121452
 SpriteRenderer:
   m_ObjectHideFlags: 1
