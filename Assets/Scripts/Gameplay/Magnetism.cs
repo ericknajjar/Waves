@@ -18,7 +18,10 @@ public class Magnetism : Entity,IMagneticResponse {
 	float m_pullPower=500;
 
 	[SerializeField]
-	Collider2D[] m_magneticAreas;
+	ParticleSystem m_pull;
+
+	[SerializeField]
+	ParticleSystem m_push;
 
 	Rigidbody2D m_rigidBody;
 	IPlataformerInput m_input;
@@ -42,25 +45,34 @@ public class Magnetism : Entity,IMagneticResponse {
 	{
 		var power = m_input.GetPower (transform.position);
 	
-		if (power.PowerSwitch != 0)
-		{
-			var arr = new string[]{"Ground","Wall","Anvil"};
-			var hits = Physics2D.RaycastAll(transform.position,power.PowerDirection,20.0f,LayerMask.GetMask(arr));
+		if (power.PowerSwitch != 0) {
+			
+			var arr = new string[]{ "Ground", "Wall", "Anvil" };
+			var hits = Physics2D.RaycastAll (transform.position, power.PowerDirection, 20.0f, LayerMask.GetMask (arr));
 
-			foreach(var hit in hits)
-			{
-				if (hit.collider!=null && hit.collider.tag=="metal")
-				{
+			if (power.PowerSwitch == 1) {
+				m_pull.gameObject.SetActive (true);
+				m_pull.transform.forward = power.PowerDirection;
+
+			} else {
+				m_push.gameObject.SetActive (true);
+				m_push.transform.forward = power.PowerDirection;
+			}
+
+			foreach (var hit in hits) {
+				if (hit.collider != null && hit.collider.tag == "metal") {
 					var responders = hit.collider.GetComponents<IMagnectiResponder> ();
 
-					foreach (var responder in responders)
-					{
-						responder.Affect (this,power.PowerDirection*power.PowerSwitch,m_pullPower);
+					foreach (var responder in responders) {
+						responder.Affect (this, power.PowerDirection * power.PowerSwitch, m_pullPower);
 					}
 					Debug.Log (hit.collider);
 				}
 			}
 
+		} else {
+			m_pull.gameObject.SetActive (false);
+			m_push.gameObject.SetActive (false);
 		}
 	}
 
